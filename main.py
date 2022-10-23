@@ -1,5 +1,7 @@
+import os
 from rich.console import Console
 import keyboard
+import random
 
 console = Console()
 
@@ -41,50 +43,55 @@ def print_map() -> None:
                 console.print(' ', style='white on blue', end='')
     console.print()
 
+    console.print('tap [white on blue bold]w[/white on blue bold] to move up')
+    console.print('tap [white on blue bold]a[/white on blue bold] to move left')
+    console.print('tap [white on blue bold]s[/white on blue bold] to move down')
+    console.print('tap [white on blue bold]d[/white on blue bold] to move right')
+    console.print('or tap [white on red]q[/white on red] to leave')
+
 
 class Player:
     def __init__(self):
-        self.position_x = int(input('pos on x: '))
-        self.position_y = int(input('pos on y: '))
+        self.position_x = random.randint(2, len(map[0])-1)
+        self.position_y = random.randint(2, len(map)-1)
         map[self.position_y][self.position_x] = '2'
+        os.system('cls')
         print_map()
 
     def move_up(self):
-        if self.position_y - 1 != 1:
+        if map[self.position_y - 1][self.position_x] != '1':
             map[self.position_y][self.position_x] = '0'
             self.position_y -= 1
             map[self.position_y][self.position_x] = '2'
+        os.system('cls')
         print_map()
 
     def move_down(self):
-        if self.position_y + 1 != 1:
+        if map[self.position_y + 1][self.position_x] != '1':
             map[self.position_y][self.position_x] = '0'
             self.position_y += 1
             map[self.position_y][self.position_x] = '2'
+        os.system('cls')
         print_map()
 
     def move_right(self):
-        if self.position_x + 1 != 1:
+        if map[self.position_y][self.position_x + 1] != '1':
             map[self.position_y][self.position_x] = '0'
             self.position_x += 1
             map[self.position_y][self.position_x] = '2'
+        os.system('cls')
         print_map()
 
     def move_left(self):
-        if self.position_x - 1 != 1:
+        if map[self.position_y][self.position_x - 1] != '1':
             map[self.position_y][self.position_x] = '0'
             self.position_x -= 1
             map[self.position_y][self.position_x] = '2'
+        os.system('cls')
         print_map()
 
 
 player = Player()
-
-console.print('tap [white on blue bold]w[/white on blue bold] to move up')
-console.print('tap [white on blue bold]a[/white on blue bold] to move left')
-console.print('tap [white on blue bold]s[/white on blue bold] to move down')
-console.print('tap [white on blue bold]d[/white on blue bold] to move right')
-console.print('or tap [white on red]q[/white on red] to leave')
 
 
 while True:
