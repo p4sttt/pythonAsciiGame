@@ -87,7 +87,7 @@ class Player:
             map[self.position_y][self.position_x] = '2'
         os.system('cls')
         print_map()
-
+        
     def move_right(self):
         if map[self.position_y][self.position_x + 1] != '1':
             map[self.position_y][self.position_x] = '0'
