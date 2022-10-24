@@ -1,8 +1,8 @@
 # pythonAsciiGame
-[gameplay main.py](https://youtu.be/yHzGacnRHmY)
+[gameplay fullVersion.py](https://youtu.be/yHzGacnRHmY)
 
-## main.py
+## fullVersion
 The full version of the application requires the following libraries: [keyboard](https://pypi.org/project/keyboard/) and [rich](https://pypi.org/project/rich/)
 
-## liteVersion.py
+## liteVersion
 No third-party libraries are required to use the lite version.
